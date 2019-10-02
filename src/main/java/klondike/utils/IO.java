@@ -8,21 +8,6 @@ public class IO {
     private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
             System.in));
 
-    public static String readString(String title) {
-        String input = null;
-        boolean ok = false;
-        do {
-            write(title);
-            try {
-                input = bufferedReader.readLine();
-                ok = true;
-            } catch (Exception ex) {
-                writeFormatError("de cadena de caracteres");
-            }
-        } while (!ok);
-        return input;
-    }
-
     public static int readInt(String title) {
         int input = 0;
         boolean ok = false;
@@ -81,8 +66,19 @@ public class IO {
         return charValue;
     }
 
-    public static void writeln() {
-        System.out.println();
+    public static String readString(String title) {
+        String input = null;
+        boolean ok = false;
+        do {
+            write(title);
+            try {
+                input = bufferedReader.readLine();
+                ok = true;
+            } catch (Exception ex) {
+                writeFormatError("de cadena de caracteres");
+            }
+        } while (!ok);
+        return input;
     }
 
     public static void writetab() {
@@ -93,13 +89,17 @@ public class IO {
         System.out.print(string);
     }
 
+    public static void writeError(String title, String msg) {
+        writeln("!!!! " + title.toUpperCase() + ": " + msg);
+        writeln();
+    }
+
     public static void writeln(String string) {
         System.out.println(string);
     }
 
-    public static void writeError(String title, String msg) {
-        writeln("!!!! " + title.toUpperCase() + ": " + msg);
-        writeln();
+    public static void writeln() {
+        System.out.println();
     }
 
     private static void writeFormatError(String formato) {
