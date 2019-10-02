@@ -16,6 +16,11 @@ public abstract class Menu {
         for (int i = 0; i < this.commandList.size(); i++) {
             commands.add(this.commandList.get(i));
         }
+        int option = getOption(commands);
+        commands.get(option).execute();
+    }
+
+    private int getOption(ArrayList<Command> commands) {
         boolean error;
         int option;
         do {
@@ -30,7 +35,7 @@ public abstract class Menu {
             }
             IO.writeln();
         } while (error);
-        commands.get(option).execute();
+        return option;
     }
 
     protected void addCommand(Command command) {
