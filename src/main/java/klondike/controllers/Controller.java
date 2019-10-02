@@ -26,7 +26,6 @@ public abstract class Controller {
         return this.game.peekFoundation(suit);
     }
 
-
     public Stack<Card> getPileCards(int index) {
         return this.game.getPileCards(index);
     }

@@ -7,7 +7,6 @@ import klondike.utils.IO;
 
 public class GameView {
 
-
     private final Controller controller;
 
     public GameView(Controller controller) {
